@@ -5,6 +5,13 @@ Built with **React (frontend)** + **Django (backend)** + (future) **Gemini AI**.
 
 ---
 
+## 🌐 Live Demo
+Check out the app deployed on Vercel:
+
+[![Vercel](https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg)](https://gym-excuse-generator-git-main-techy-zeniths-projects.vercel.app/)
+
+---
+
 ## 🚀 Features
 - Generate excuses by category:
   - 🧪 Scientific & nerdy
@@ -35,7 +42,7 @@ Built with **React (frontend)** + **Django (backend)** + (future) **Gemini AI**.
 ## ⚙️ Setup Instructions
 
 ### 1. Backend (Django)
-<h6>cd gym_excuse_backend<br>python -m venv venv<br>venv\Scripts\activate    # On Windows<br>pip install -r requirements.txt<br>python manage.py migrate<br>python manage.py runserver</h6>
+<h6>cd gym_excuse_backend<br>python -m venv venv<br># On Windows<br>venv\Scripts\activate<br># On Mac/Linux<br>source venv/bin/activate<br><br>pip install -r requirements.txt<br>python manage.py migrate<br>python manage.py runserver</h6>
 
 ### 2. Frontend (React)
 <h6>cd gym-excuse-frontend<br>npm install<br>npm run dev</h6>
