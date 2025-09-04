@@ -8,7 +8,7 @@ Built with **React (frontend)** + **Django (backend)** + (future) **Gemini AI**.
 ## 🌐 Live Demo
 Check out the app deployed on Vercel:
 
-[![Vercel](https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg)](https://gym-excuse-generator-git-main-techy-zeniths-projects.vercel.app/)
+[![Vercel](https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg)](https://gym-excuse-gen-git-main-techy-zeniths-projects.vercel.app/)
 
 ---
 
