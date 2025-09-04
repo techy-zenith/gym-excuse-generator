@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+const API_BASE =
+  import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000";
+
 function App() {
   const [category, setCategory] = useState("Scientific & Nerdy");
   const [twist, setTwist] = useState("");
@@ -8,25 +11,37 @@ function App() {
 
   // Function to call backend
   const generateExcuse = async () => {
-    setLoading(true);
-    setExcuse("");
-
-    try {
-      const response = await fetch("http://localhost:8000/api/generate_excuse/", {
+  setLoading(true);
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASE}/api/generate_excuse/`,
+      {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ category, twist }),
-      });
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          category: category,
+          twist: twist,
+        }),
+      }
+    );
 
-      const data = await response.json();
-      setExcuse(data.excuse);
-    } catch (error) {
-      console.error("Error fetching excuse:", error);
-      setExcuse("⚠️ Error: Could not generate excuse. Check backend.");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
+    const data = await response.json();
+    console.log("Excuse:", data.excuse);
+
+    setExcuse(data.excuse || "No excuse generated.");
+  } catch (error) {
+    console.error("Error generating excuse:", error);
+    setExcuse("Something went wrong 😢");
+  } finally {
     setLoading(false);
-  };
+  }
+};
 
   // Copy to clipboard
   const copyToClipboard = () => {
@@ -92,7 +107,7 @@ function App() {
   );
 }
 
-// Inline styles 
+// Inline styles
 const styles = {
   container: {
     backgroundColor: "#0a0a23",
