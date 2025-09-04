@@ -24,7 +24,14 @@ def generate_excuse(request):
             """
 
             model = genai.GenerativeModel("gemini-1.5-flash")
-            response = model.generate_content(prompt)
+            response = model.generate_content(
+                prompt,
+                generation_config={
+                    "temperature": 1.5,
+                    "top_p": 0.95,
+                    "top_k": 40
+                }
+            )
 
             excuse = response.text.strip() if response and response.text else "Couldn’t generate an excuse 😅"
 
